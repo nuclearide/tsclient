@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "watch": true,
+        "outDir": "dist",
+        "lib": [
+            "es6"
+        ]
+    }
+}

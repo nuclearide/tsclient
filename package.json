@@ -1,0 +1,16 @@
+{
+  "name": "tsclient",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "typings": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.1.2"
+  }
+}
