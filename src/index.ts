@@ -52,7 +52,6 @@ export default class TSClient extends EventEmitter {
                 cb(data);
             })
         }
-        console.log(JSON.stringify(cmd));
         this._proc.stdin.write(JSON.stringify(cmd) + "\n");
     }
     open(filename) {
@@ -95,6 +94,15 @@ export default class TSClient extends EventEmitter {
         })
     }
 
+    async getDefinition(file, line, offset) {
+        return new Promise(resolve => {
+            this._sendMessage("definition", {
+                file,
+                line,
+                offset
+            }, resolve)
+        });
+    }
     getErr(filename) {
         this._sendMessage("geterr", {
             delay: 0,

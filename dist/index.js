@@ -93,7 +93,6 @@ var TSClient = /** @class */ (function (_super) {
                 cb(data);
             });
         }
-        console.log(JSON.stringify(cmd));
         this._proc.stdin.write(JSON.stringify(cmd) + "\n");
     };
     TSClient.prototype.open = function (filename) {
@@ -138,6 +137,20 @@ var TSClient = /** @class */ (function (_super) {
                             line: line,
                             offset: offset,
                             entryNames: entryNames
+                        }, resolve);
+                    })];
+            });
+        });
+    };
+    TSClient.prototype.getDefinition = function (file, line, offset) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        _this._sendMessage("definition", {
+                            file: file,
+                            line: line,
+                            offset: offset
                         }, resolve);
                     })];
             });
