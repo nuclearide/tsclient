@@ -162,6 +162,9 @@ var TSClient = /** @class */ (function (_super) {
             files: [filename]
         });
     };
+    TSClient.prototype.close = function () {
+        this._proc.kill();
+    };
     return TSClient;
 }(events_1.EventEmitter));
 exports["default"] = TSClient;
