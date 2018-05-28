@@ -162,7 +162,12 @@ var TSClient = /** @class */ (function (_super) {
             files: [filename]
         });
     };
-    TSClient.prototype.close = function () {
+    TSClient.prototype.close = function (file) {
+        this._sendMessage("close", {
+            file: file
+        });
+    };
+    TSClient.prototype.kill = function () {
         this._proc.kill();
     };
     return TSClient;

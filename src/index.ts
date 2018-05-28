@@ -110,7 +110,13 @@ export default class TSClient extends EventEmitter {
         })
     }
 
-    close() {
+    close(file) {
+        this._sendMessage("close", {
+            file
+        })
+    }
+
+    kill() {
         this._proc.kill();
     }
 }
